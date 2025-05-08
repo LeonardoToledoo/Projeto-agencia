@@ -1,0 +1,88 @@
+// package poo2.uniderp.agencia.controller;
+
+// import java.util.List;
+// import java.util.Optional;
+
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.http.HttpStatus;
+// import org.springframework.http.ResponseEntity;
+// import org.springframework.web.bind.annotation.DeleteMapping;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PutMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RestController;
+
+// import poo2.uniderp.agencia.pojo.Categoria;
+// import poo2.uniderp.agencia.service.CategoriaService;
+
+
+
+
+// @RestController
+// @RequestMapping("/api/agencia/almoxarifado/categoria")
+// public class CategoriaController {
+
+//     @Autowired
+//     private CategoriaService servico;
+
+//     public CategoriaController(CategoriaService srv){
+//         this.servico = srv;
+//     }
+//     @GetMapping
+//     public List<Categoria> obterTodos(){
+//         return this.servico.browse();
+//     }
+//     @GetMapping("/{codigo}")
+//     public ResponseEntity <Categoria> obterPorId(@PathVariable Long codigo){
+//         Optional<Categoria> optresposta = this.servico.read(codigo);
+//         if (optresposta.isPresent() == false){
+//             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//         }
+//             else{
+//                 Categoria resposta = optresposta.get();
+//                 return new ResponseEntity<Categoria>(resposta, HttpStatus.NOT_FOUND);
+//             }
+//         }
+//      @PostMapping
+//       public ResponseEntity <Categoria> inserir(@RequestBody Categoria instancia){
+
+//         if(instancia == null){
+//             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//         }
+//         else{   
+//             Categoria resposta = this.servico.add(instancia);
+//              return new ResponseEntity<>(resposta, HttpStatus.CREATED);
+//         }
+//     }
+//     @PutMapping
+//     public ResponseEntity<Categoria> Alterar(@RequestBody Categoria instancia){
+//         if(instancia == null){
+//             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+//         }
+//         else{
+//             Categoria respostas = this.servico.edit(instancia);
+//             return new ResponseEntity<Categoria>(respostas,HttpStatus.BAD_REQUEST);
+//         }
+//      }
+//      @DeleteMapping("/{codigo}")
+//    public ResponseEntity <Categoria> apagar (@PathVariable Long codigo){
+//         if(this.servico.read(codigo)== null) {
+//             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//         }
+//         else{
+//             Categoria resposta=  this.servico.delete(codigo);
+//             this.servico.delete(codigo);
+//             return new ResponseEntity<>(resposta,HttpStatus.OK);
+//         }
+//     }
+// }
+
+
+   
+
+
+
