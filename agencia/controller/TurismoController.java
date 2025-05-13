@@ -26,8 +26,9 @@ public class TurismoController {
     @Autowired
     private TurismoService servico;
 
-    
-    
+    public TurismoController(TurismoService srv) {
+        this.servico = srv;
+    }
 
     @GetMapping
     public ResponseEntity<List<GuiaTurismo>> obterTodos() {
