@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import poo2.uniderp.agencia.pojo.Cliente;
@@ -46,6 +49,12 @@ public class ClienteService implements IBaseService<Cliente> {
     public Optional<Cliente> delete(Cliente cliente) {
         Optional<Cliente> opt = clienteRepo.findById(cliente.getId());
         opt.ifPresent(clienteRepo::delete);
-        return opt;
+        return opt;   
     }
-}
+    
+     public Page<Cliente> listarClientesPaginados(int page, int size){
+        Pageable pg = PageRequest.of(page, size);
+        return this.clienteRepo.findAll(pg);
+
+        }
+    }

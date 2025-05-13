@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,6 +46,12 @@ public class TurismoController {
             return new ResponseEntity<>(resposta, HttpStatus.OK); 
         }
     }
+
+    @GetMapping("/{page}/{size}")
+    public Page<GuiaTurismo> listarGuia(@PathVariable int page, @PathVariable int size){
+            return this.servico.listarGuiasPaginados(page, size);
+     }
+
 
     @PostMapping
     public ResponseEntity<GuiaTurismo> inserir(@RequestBody GuiaTurismo instancia) {
