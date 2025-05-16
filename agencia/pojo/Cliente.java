@@ -1,9 +1,18 @@
 package poo2.uniderp.agencia.pojo;
 
+
+
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,12 +22,10 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private String email;
     private String telefone;
 
-    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -51,4 +58,23 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    public Cliente(String email, Long id, String nome, String telefone) {
+        this.email = email;
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+    
+    
+    public Cliente() {
+    }
+
+
+    @OneToMany(mappedBy = "cliente",
+     cascade = CascadeType.ALL,
+      fetch= FetchType.LAZY)
+    @JsonManagedReference 
+    private Set <GuiaTurismo> guiasTurismo;
+
 }
+

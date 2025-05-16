@@ -1,9 +1,13 @@
 package poo2.uniderp.agencia.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table (name = "GuiaTurismo")
@@ -14,7 +18,7 @@ public class GuiaTurismo {
     private String nome;
     private String idioma;
     private String registroMinTur;
-
+    
 
     public String getRegistroMinTur() {
         return registroMinTur;
@@ -40,11 +44,16 @@ public class GuiaTurismo {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public GuiaTurismo() {
-    }
+
     public GuiaTurismo(Long id, String nome, String idioma) {
         this.id = id;
         this.nome = nome;
         this.idioma = idioma;
     }
+    public GuiaTurismo(){}
+
+     @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    @JsonBackReference
+    private Cliente cliente;
 }

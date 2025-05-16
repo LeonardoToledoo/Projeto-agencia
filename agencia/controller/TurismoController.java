@@ -20,7 +20,7 @@ import poo2.uniderp.agencia.pojo.GuiaTurismo;
 import poo2.uniderp.agencia.service.TurismoService;
 
 @RestController
-@RequestMapping("/api/agencia/Guia/Turismo")
+@RequestMapping("/api/Guia/Turismo")
 public class TurismoController {
 
     @Autowired

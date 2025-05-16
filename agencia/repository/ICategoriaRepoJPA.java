@@ -1,9 +1,10 @@
-// package poo2.uniderp.agencia.repository;
+package poo2.uniderp.agencia.repository;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-// import poo2.uniderp.agencia.pojo.Categoria;
+import poo2.uniderp.agencia.pojo.Categoria;
 
-// public interface ICategoriaRepoJPA  extends JpaRepository<Categoria,Long>{
+public interface ICategoriaRepoJPA extends JpaRepository<Categoria, Long>{
+
     
-// }
+}

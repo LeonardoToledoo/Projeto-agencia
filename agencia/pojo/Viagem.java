@@ -14,6 +14,7 @@ public class Viagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+   
     private Long id;
     private String destino;
     private LocalDateTime dataPartida;
@@ -49,7 +50,7 @@ public class Viagem {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-    public Viagem(){
+    public Viagem() {
     }
     public Viagem(Long id, String destino, LocalDateTime dataPartida, LocalDateTime dataRetorno, Double preco) {
         this.id = id;
@@ -58,6 +59,7 @@ public class Viagem {
         this.dataRetorno = dataRetorno;
         this.preco = preco;
     }
+    
 
 }
 
